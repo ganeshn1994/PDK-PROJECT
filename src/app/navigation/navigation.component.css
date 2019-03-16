@@ -1,0 +1,41 @@
+.example-container {
+  height: 100%;
+  margin: 10px;
+}
+
+.mat-drawer.mat-sidenav.ng-tns-c6-0.ng-trigger.ng-trigger-transform.mat-drawer-side.ng-star-inserted {
+  /* background: #000; */
+  background: #1c2135;
+width: 18%;
+  /* color: white; */
+  }
+
+  .mat-list-item-content {
+    color: white !important;
+    font-size: 20px;
+    }
+  .panel{
+    background: #14192c
+  }
+  .title{
+    color: #fff
+  }
+  .mat-toolbar.mat-toolbar-multiple-rows {
+    background: #000;
+    }
+
+    .mat-icon.material-icons {
+      color: white;
+      }
+      span.mat-expansion-indicator.ng-tns-c9-2.ng-trigger.ng-trigger-indicatorRotate.ng-star-inserted::after {
+        color: white;
+        transform: rotate(360deg);
+        }
+
+   .menu{
+    margin-top: 0;
+    margin-bottom: 10px;
+    list-style-type: circle;
+    font-size: 31px;
+    color: white;
+   }     

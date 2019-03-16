@@ -1,0 +1,10 @@
+.headDiv {
+    background: rgba(41, 196, 236, 1);
+height: 48px;
+margin-top: 0px;
+}
+
+h4.head {
+    padding: 15px;
+    /* border: 1px #fff solid; */
+}

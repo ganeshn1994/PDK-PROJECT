@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; background: #000}
+.example-container[_ngcontent-c1] {
+    height: 100% !important;
+    margin: 10px;
+    }
+.mat-list-item-content {
+    color: white !important;
+    }
+
+    .mat-form-field-infix {
+        width: 70px !important;
+        }

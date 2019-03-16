@@ -1,0 +1,139 @@
+
+<div class="headDiv">
+<h4 class="head"> Oil and Gas</h4>
+</div>
+<mat-tab-group>
+    <mat-tab label="Oil"> 
+        
+    <div class="col-md-12" style="margin-left:2%">
+      <div class="col-md-5 order">
+        <!-- <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px"> -->
+            <mat-card *ngFor="let section1 of sections" >
+                <mat-card-header>
+                    <mat-form-field>
+                        <mat-select placeholder="TK">
+                          <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </mat-card-header>
+                <p>{{section1.Avl_Qty}}</p>
+                <p>{{section1.title}}</p>
+
+                <mat-card-content [innerHTML]="section1.content | safeHtml"></mat-card-content>
+                <div class="qtysty">
+                    <p>Qty</p>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{ counterService.count }}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+            </mat-card>
+          <!-- </div> -->
+      <!-- <div class="col-md-6 order">
+          
+
+                <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+              <mat-card class="cardsty">
+                <mat-card-content>
+                    <p style="text-align:center">Basic mat-select</p>
+                    <mat-form-field>
+                      <mat-select placeholder="TK">
+                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                          {{food.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <p>Avl Qty: 98 KL</p>
+                    <p>Petrol</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹75</p><br>
+                    <div class="qtysty">
+                    <p>Qty</p>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{ counterService.count }}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+                  </mat-card-content>
+              </mat-card>
+        </div>
+
+        
+        </div> -->
+        </div>
+        
+        <div class="col-md-3">
+            <h5 style="text-align:center;">ORDERS</h5>
+            <div class="orderlist">
+            <ul *ngFor="let section1 of sections">
+              <li class="list">{{section1.title}}(60KL)-</li>
+              <a class="close" click="delete(id)"><i class="fa fa-close"></i></a><br>
+              <p>₹{{counterService.count}}</p>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 orderDetails">
+            <h5>ORDERS DETAILS</h5>  
+            <div>
+                <input class="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              <br>
+                <mat-form-field>
+                    <mat-select placeholder="LOC">
+                      <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <br>
+                  <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Quantity</span>
+                      </div>
+                      <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">Amount</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                      </div>
+                      <div class="input-group input-group-sm mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Discount(%)</span>
+                          </div>
+                          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="input-group input-group-sm mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" id="inputGroup-sizing-sm">Total Amount</span>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                          </div>
+                          <div class="input-group input-group-sm mb-3">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-sm">Due</span>
+                              </div>
+                              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div>
+                            <button type="button" class="btn btn-primary submit">Place Order</button>
+                            <button type="button" class="btn btn-primary">Cancel</button>
+
+                          </div>
+                  <!-- <p class="formin">Qantity</p><input class="forminfl" matInput placeholder="Qantity" value="Sushi">
+                  <p class="formin">Amount</p><input class="forminfl" matInput placeholder="Amount" value="Sushi">
+                  <p class="formin">Discount(%)</p><input class="forminfl" matInput placeholder="Discount(%)" value="Sushi">
+                  <p class="formin">Total Amount</p><input class="forminfl" matInput placeholder="Total Amount" value="Sushi">
+                  <p class="formin">Due</p><input class="forminfl" matInput placeholder="Due" value="Sushi"> -->
+
+                    
+            </div>         
+        </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Gas"> Content 2 </mat-tab>
+</mat-tab-group>

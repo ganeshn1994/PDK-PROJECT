@@ -1,0 +1,45 @@
+<mat-toolbar color="toolbar">
+  <mat-toolbar-row class="toolbar">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <!-- <span><img src="./assets/devglan.png"></span> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="side" opened role="navigation">
+    <mat-nav-list>
+      <a mat-list-item routerLink='/'><i class="fa fa-home" style=" margin-right: 18px;" aria-hidden="true"></i> Home </a>
+      <mat-accordion>
+          <mat-expansion-panel class="panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="title">
+                  <i class="fa fa-person" style=" margin-right: 18px;" aria-hidden="true"></i>Field Work
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+          </mat-expansion-panel>
+          </mat-accordion>
+          <ul class="menu">
+              <li><a mat-list-item routerLink='/first'>New Order</a></li>
+              <li><a mat-list-item routerLink='/second'>My Orders</a></li>
+              <li><a mat-list-item routerLink='/second'>Comence Discharge/Unload</a></li>
+              <li><a mat-list-item routerLink='/second'>Sales Entry</a></li>
+            </ul>
+      <!-- <a mat-list-item routerLink='/first'></a> -->
+      <!-- <a mat-list-item routerLink='/second'>Second Component</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!--<mat-drawer-container class="example-container">
+  <mat-drawer #drawer mode="side" opened>
+    <a mat-list-item routerLink='/first'>First Component</a>
+    <a mat-list-item routerLink='/second'>Second Component</a>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>-->

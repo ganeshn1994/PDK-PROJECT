@@ -1,0 +1,77 @@
+<div class="headDiv">
+    <h4 class="head"> Retailer Order</h4>
+</div>
+<div class="row">
+<table style="width:100%" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> # </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="orderno">
+      <th mat-header-cell *matHeaderCellDef> Order No </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderno}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="orderdate">
+      <th mat-header-cell *matHeaderCellDef> Order Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderdate}} </td>
+    </ng-container>
+  
+    <!-- Retailer Column -->
+    <ng-container matColumnDef="retailer">
+      <th mat-header-cell *matHeaderCellDef> Retailer </th>
+      <td mat-cell *matCellDef="let element"> {{element.retailer}} </td>
+    </ng-container>
+
+     <!-- Depot Column -->
+     <ng-container matColumnDef="depot">
+        <th mat-header-cell *matHeaderCellDef> Depot </th>
+        <td mat-cell *matCellDef="let element"> {{element.depot}} </td>
+      </ng-container>
+
+       <!-- Transport Column -->
+    <ng-container matColumnDef="transport">
+        <th mat-header-cell *matHeaderCellDef> Transport </th>
+        <td mat-cell *matCellDef="let element"> {{element.transport}} </td>
+      </ng-container>
+
+       <!-- Supplier Column -->
+    <ng-container matColumnDef="supplier">
+        <th mat-header-cell *matHeaderCellDef> Supplier </th>
+        <td mat-cell *matCellDef="let element"> {{element.supplier}} </td>
+      </ng-container>
+
+           <!-- Order Quantity Column -->
+    <ng-container matColumnDef="orderaty">
+        <th mat-header-cell *matHeaderCellDef> Order Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderaty}} </td>
+      </ng-container>
+
+           <!-- Order Amount  Column -->
+    <ng-container matColumnDef="orderamt">
+        <th mat-header-cell *matHeaderCellDef> Order Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.orderamt}} </td>
+      </ng-container>
+
+           <!-- Status Column -->
+    <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

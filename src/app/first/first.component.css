@@ -1,0 +1,113 @@
+.mat-form-field-infix {
+    width: 70px !important;
+    }
+
+    input.count {
+        width: 20%;
+        border: 1px #000 solid;
+        border-radius: 2px;
+        height: 19px;
+        width: 35px;
+        text-align: center;
+    }
+    
+    .qtysty {
+        float: left;
+        border: 1px #00000073 solid;
+        height: 19px;
+        border-radius: 0px;
+        font-size: 13px;
+        width: 31px;
+        text-align: center;
+        margin-left: -17px;
+    }
+
+    button.plus {
+        margin-right: -8px;
+        background: rgba(215, 216, 151, 1);
+        border-radius: 6px;
+        float: right;
+    }
+
+    .col-md-5.order[_ngcontent-c10] {
+        width: 46%;
+        height: 500px;
+        overflow-y: scroll;
+        margin-right: -26px;
+        border-right: 1px #000 solid;
+    }
+
+    mat-card.mat-card.ng-star-inserted {
+        width: 30%;
+        float: left;
+        margin-left: 7px;
+        margin-bottom: 10px;
+    }
+
+    mat-form-field-wrapper {
+        margin-left: -21px;
+    }
+
+    .headDiv {
+        background: rgba(41, 196, 236, 1);
+    height: 48px;
+    margin-top: 0px;
+    }
+
+    h4.head {
+        padding: 15px;
+        /* border: 1px #fff solid; */
+    }
+
+    li.list {
+        float: left;
+    }
+
+    .orderlist {
+        height: 300px;
+        overflow-y: scroll;
+        border-right: 1px #000 solid;
+    }
+
+    .close {
+        float: none;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+        margin-left: 9px;
+    }
+
+    .col-md-4.orderDetails {
+        width: 100%;
+        /* text-align: center; */
+    }
+
+    button.btn.btn-primary.submit {
+        margin-right: 13px;
+    }
+
+
+    /* Custom Scroll */
+    /* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
