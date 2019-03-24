@@ -10,6 +10,12 @@
         width: 35px;
         text-align: center;
     }
+
+    mat-card.card.mat-card {
+        width: 138px;
+        margin-left: -15px;
+        float: left;
+    }
     
     .qtysty {
         float: left;

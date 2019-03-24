@@ -8,28 +8,123 @@
     <div class="col-md-12" style="margin-left:2%">
       <div class="col-md-5 order">
         <!-- <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px"> -->
-            <mat-card *ngFor="let section1 of sections" >
+            <mat-card class="card">
                 <mat-card-header>
-                    <mat-form-field>
+                    <!-- <mat-form-field>
                         <mat-select placeholder="TK">
                           <mat-option *ngFor="let food of foods" [value]="food.value">
                             {{food.viewValue}}
                           </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                      </mat-form-field> -->
                 </mat-card-header>
-                <p>{{section1.Avl_Qty}}</p>
-                <p>{{section1.title}}</p>
 
-                <mat-card-content [innerHTML]="section1.content | safeHtml"></mat-card-content>
+                <mat-card-content>
+                    <div>
+                        <select (change)="filterForeCasts($event.target.value)">
+                            <option value=0>
+                                TK
+                            </option>
+                            <option value=1>
+                                TK1
+                            </option>
+                            <option value=2>
+                                TK2
+                            </option>
+                        </select>
+                    </div>
+                  <div>
+                    <p style="font-size: 10px;">Avl Qty: {{getData.availableQuantity}} KL</p>
+                    <p>Petrol</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹{{getData.price}}</p>
+                  </div>
+                </mat-card-content>
                 <div class="qtysty">
-                    <p>Qty</p>
+                    
+                    <p>Qty</p><br>
                     </div>
                     <div>
-                    <input class="count" type="number" value="{{ counterService.count }}"/> 
+                    <input class="count" type="number" value="{{getData.availableQuantity}}"/> 
                     <button (click)="incCount()" class="plus">+</button>
                   </div>
             </mat-card>
+
+            <!-- <mat-card>
+                <mat-card-header>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div>
+                        <label>Summary: </label>
+                        <select (change)="filterForeCasts($event.target.value)">
+                            <option value=0>
+                                TK
+                            </option>
+                          <option value=3>
+                                TK3
+                            </option>
+                            <option value=3>
+                                TK3
+                            </option>
+                            <option value=4>
+                                TK4
+                            </option>
+                        </select>
+                    </div>
+                  <div *ngIf="getData.oilType==diesel">
+                    <p>Avl Qty: {{getData.availableQuantity}} KL</p>
+                    <p>Petrol</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹{{getData.price}}</p>
+                  </div>
+                </mat-card-content>
+                <div class="qtysty">
+                    
+                    <p>Qty</p><br>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{getData.availableQuantity}}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+            </mat-card> -->
+
+            <!-- <mat-card>
+                <mat-card-header>
+                    
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div *ngIf="getData.oilType==kerosene">
+                        <label>Summary: </label>
+                        <select (change)="filterForeCasts($event.target.value)">
+                            <option value=0>
+                                TK
+                            </option>
+                            <option value=5>
+                                TK5
+                            </option>
+                            <option value=6>
+                                TK6
+                            </option>
+                        </select>
+                    </div>
+                  <div>
+                    <p>Avl Qty: {{getData.availableQuantity}} KL</p>
+                    <p>Petrol</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹{{getData.price}}</p>
+                  </div>
+                </mat-card-content>
+                <div class="qtysty">
+                    
+                    <p>Qty</p><br>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{getData.availableQuantity}}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+            </mat-card> -->
           <!-- </div> -->
       <!-- <div class="col-md-6 order">
           
@@ -67,8 +162,8 @@
         <div class="col-md-3">
             <h5 style="text-align:center;">ORDERS</h5>
             <div class="orderlist">
-            <ul *ngFor="let section1 of sections">
-              <li class="list">{{section1.title}}(60KL)-</li>
+            <ul *ngFor="let orders of orderList">
+              <li class="list">{{orders.item.oilType}}(60KL)-</li>
               <a class="close" click="delete(id)"><i class="fa fa-close"></i></a><br>
               <p>₹{{counterService.count}}</p>
             </ul>
