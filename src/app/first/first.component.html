@@ -5,7 +5,7 @@
 <mat-tab-group>
     <mat-tab label="Oil"> 
         
-    <div class="col-md-12" style="margin-left:2%">
+    <div class="col-md-12" style="margin-left:-1%">
       <div class="col-md-5 order">
         <!-- <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px"> -->
             <mat-card class="card">
@@ -34,10 +34,10 @@
                         </select>
                     </div>
                   <div>
-                    <p style="font-size: 10px;">Avl Qty: {{getData.availableQuantity}} KL</p>
+                    <p style="font-size: 10px;">Avl Qty: {{getPData.availableQuantity}} KL</p>
                     <p>Petrol</p>
                     <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
-                    <p>₹{{getData.price}}</p>
+                    <p>₹{{getPData.price}}</p>
                   </div>
                 </mat-card-content>
                 <div class="qtysty">
@@ -45,7 +45,91 @@
                     <p>Qty</p><br>
                     </div>
                     <div>
-                    <input class="count" type="number" value="{{getData.availableQuantity}}"/> 
+                    <input class="count" type="number" value="{{getPData.availableQuantity}}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+            </mat-card>
+
+            <mat-card class="card">
+                <mat-card-header>
+                    <!-- <mat-form-field>
+                        <mat-select placeholder="TK">
+                          <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field> -->
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div>
+                        <select (change)="filterForeCasts($event.target.value)">
+                            <option value=0>
+                                TK
+                            </option>
+                            <option value=3>
+                                TK3
+                            </option>
+                            <option value=4>
+                                TK4
+                            </option>
+                        </select>
+                    </div>
+                  <div>
+                    <p style="font-size: 10px;">Avl Qty: {{getDData.availableQuantity}} KL</p>
+                    <p>Diesel</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹{{getDData.price}}</p>
+                  </div>
+                </mat-card-content>
+                <div class="qtysty">
+                    
+                    <p>Qty</p><br>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{getDData.availableQuantity}}"/> 
+                    <button (click)="incCount()" class="plus">+</button>
+                  </div>
+            </mat-card>
+
+            <mat-card class="card">
+                <mat-card-header>
+                    <!-- <mat-form-field>
+                        <mat-select placeholder="TK">
+                          <mat-option *ngFor="let food of foods" [value]="food.value">
+                            {{food.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field> -->
+                </mat-card-header>
+
+                <mat-card-content>
+                    <div>
+                        <select (change)="filterForeCasts($event.target.value)">
+                            <option value=0>
+                                TK
+                            </option>
+                            <option value=5>
+                                TK5
+                            </option>
+                            <option value=6>
+                                TK6
+                            </option>
+                        </select>
+                    </div>
+                  <div>
+                    <p style="font-size: 10px;">Avl Qty: {{getKData.availableQuantity}} KL</p>
+                    <p>Kerosene</p>
+                    <img src="../../assets/img/Screen Shot 2019-03-15 at 11.58.57 PM.png"><br>
+                    <p>₹{{getKData.price}}</p>
+                  </div>
+                </mat-card-content>
+                <div class="qtysty">
+                    
+                    <p>Qty</p><br>
+                    </div>
+                    <div>
+                    <input class="count" type="number" value="{{getKData.availableQuantity}}"/> 
                     <button (click)="incCount()" class="plus">+</button>
                   </div>
             </mat-card>
@@ -165,7 +249,7 @@
             <ul *ngFor="let orders of orderList">
               <li class="list">{{orders.item.oilType}}(60KL)-</li>
               <a class="close" click="delete(id)"><i class="fa fa-close"></i></a><br>
-              <p>₹{{counterService.count}}</p>
+              <p>₹{{orders.item.price}}</p>
             </ul>
           </div>
         </div>

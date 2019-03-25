@@ -30,6 +30,9 @@ export class FirstComponent implements OnInit {
   getData: any=[];
   empList: any = [];
   orderList: Custom;
+  getPData: any=[];
+  getDData: any=[];
+  getKData: any=[];
   constructor(private counterService: HomeService, private httpClient: HttpClient) { }
 
   ngOnInit() {
@@ -117,8 +120,20 @@ export class FirstComponent implements OnInit {
     let url="http://localhost:3001/api/oil/"+ filterVal;
      
     return this.httpClient.get(url).subscribe((data:any)=>{
-      this.getData = data;
-      console.log("getData:::" + JSON.stringify(this.getData));
+      if(filterVal === '1' || filterVal === '2'){
+      this.getPData = data;
+      console.log("getPData:::" + JSON.stringify(this.getPData));
+      }
+      if(filterVal === '3' || filterVal === '4'){
+        this.getDData = data;
+      console.log("getData:::" + JSON.stringify(this.getDData));
+
+      }
+      if(filterVal === '5' || filterVal === '6'){
+        this.getKData = data;
+      console.log("getData:::" + JSON.stringify(this.getKData));
+
+      }
     })
 //     if (filterVal == "0")
 //         this.forecasts = this.cacheForecasts;
@@ -133,10 +148,30 @@ export class FirstComponent implements OnInit {
   }
   public incCount(){
     let customObj = new Custom();
-    customObj.item = this.getData;
+    console.log(this.getPData.id)
+    console.log(this.getDData.id)
+    console.log(this.getKData.id)
+
+    if(this.getPData.id === 1 || this.getPData.id === 2){
+    customObj.item = this.getPData;
     this.empList.push(customObj);
     this.orderList = this.empList
     console.log('customObj:::'+JSON.stringify(this.empList))    
+  }
+  if(this.getDData.id === 3 || this.getDData.id === 4){
+    customObj.item = this.getDData;
+    this.empList.push(customObj);
+    this.orderList = this.empList
+    console.log('customObj:::'+JSON.stringify(this.empList))    
+  } 
+  if(this.getKData.id === 5 || this.getKData.id === 6){
+    customObj.item = this.getKData;
+    this.empList.push(customObj);
+    this.orderList = this.empList
+    console.log('customObj:::'+JSON.stringify(this.empList))    
+  }
+    // this.empList.push(customObj);
+    // this.orderList = this.empList
 
     let url = "http://localhost:3001/api/order"
     return this.httpClient.post(url,customObj).subscribe((data:any)=>{
