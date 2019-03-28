@@ -246,10 +246,10 @@
         <div class="col-md-3">
             <h5 style="text-align:center;">ORDERS</h5>
             <div class="orderlist">
-            <ul *ngFor="let orders of orderList">
-              <li class="list">{{orders.item.oilType}}(60KL)-</li>
+            <ul *ngFor="let orders of orderComplete">
+              <li class="list">{{orders.oilType}}(60KL)-</li>
               <a class="close" click="delete(id)"><i class="fa fa-close"></i></a><br>
-              <p>₹{{orders.item.price}}</p>
+              <p>₹{{orders.price}}</p>
             </ul>
           </div>
         </div>

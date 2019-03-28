@@ -33,6 +33,21 @@ export class FirstComponent implements OnInit {
   getPData: any=[];
   getDData: any=[];
   getKData: any=[];
+  item:any=[];
+  orderdetails={
+    orderId:'',
+    retailer:'',
+    depot:'',
+    transport:'',
+    supplier:'',
+    quantity:40,
+    amount:200.00,
+    totalAmount:100.00,
+    status:"NEW",
+    item:this.item
+  }
+  orderComplete: { orderId: string; retailer: string; depot: string; transport: string; supplier: string; quantity: number; amount: number; totalAmount: number; status: string; items: [] };
+  filterId: any;
   constructor(private counterService: HomeService, private httpClient: HttpClient) { }
 
   ngOnInit() {
@@ -116,71 +131,93 @@ export class FirstComponent implements OnInit {
   }
 
   filterForeCasts(filterVal: any) {
-    console.log("filterVal::" + filterVal);
-    let url="http://localhost:3001/api/oil/"+ filterVal;
-     
-    return this.httpClient.get(url).subscribe((data:any)=>{
-      if(filterVal === '1' || filterVal === '2'){
-      this.getPData = data;
-      console.log("getPData:::" + JSON.stringify(this.getPData));
-      }
-      if(filterVal === '3' || filterVal === '4'){
-        this.getDData = data;
-      console.log("getData:::" + JSON.stringify(this.getDData));
+this.filterId = filterVal;
+console.log(this.filterId)    
+let url1="http://localhost:3001/api/oil/"+ this.filterId;
+return this.httpClient.get(url1).subscribe((data:any)=>{
+  // if(filterVal === '1' || filterVal === '2'){
+  this.getData = data;
+  console.log('getData::' + JSON.stringify(this.getData))
+  if(this.getData.oilCode === "tk1" || this.getData.oilCode === "tk2"){
+    this.getPData = data;
+  console.log('getPData::' + JSON.stringify(this.getPData))
+} 
+if(this.getData.oilCode === "tk3" || this.getData.oilCode === "tk4"){
+  this.getDData = data;
+  console.log('getPData::' + JSON.stringify(this.getPData))
 
-      }
-      if(filterVal === '5' || filterVal === '6'){
-        this.getKData = data;
-      console.log("getData:::" + JSON.stringify(this.getKData));
-
-      }
-    })
-//     if (filterVal == "0")
-//         this.forecasts = this.cacheForecasts;
-//     else
-//     this.forecasts = this.cacheForecasts.filter((item) => item.summary == filterVal);
-// }
+    
 }
+if(this.getData.oilCode === "tk5" || this.getData.oilCode === "tk6"){
+  this.getKData = data;
+  console.log('getKData::' + JSON.stringify(this.getKData))
+   
+}
+})
 
-  public getCount() {
-    
-    return this.counterService.count
   }
+
+public getOrder(){
+  console.log(this.orderComplete)
+
+  // if(this.getPData.id === 1 || this.getPData.id === 2){
+  this.orderdetails.item = this.getData;
+  this.empList.push(this.item);
+  this.orderList = this.empList
+  console.log('customObj:::'+JSON.stringify(this.empList))    
+// }
+// if(this.getDData.id === 3 || this.getDData.id === 4){
+//   this.orderdetails.item = this.getDData;
+//   this.empList.push(this.item);
+//   this.orderList = this.empList
+//   console.log('customObj:::'+JSON.stringify(this.empList))    
+// } 
+// if(this.getKData.id === 5 || this.getKData.id === 6){
+//   this.item = this.getKData;
+//   this.empList.push(this.item);
+//   this.orderList = this.empList
+//   console.log('customObj:::'+JSON.stringify(this.empList))    
+// }
+  // this.empList.push(customObj);
+  // this.orderList = this.empList
+
+  let url = "http://localhost:3001/api/order"
+  return this.httpClient.post(url,this.orderComplete).subscribe((data:any)=>{
+  console.log('data:::'+JSON.stringify(data))    
+  
+  })
+  console.log('inc')
+  this.counterService.count += 1;
+}
   public incCount(){
-    let customObj = new Custom();
-    console.log(this.getPData.id)
-    console.log(this.getDData.id)
-    console.log(this.getKData.id)
+    let url1="http://localhost:3001/api/oil/"+ this.filterId;
+     
+    return this.httpClient.get(url1).subscribe((data:any)=>{
+      // if(filterVal === '1' || filterVal === '2'){
+      this.getData = data;
+      this.orderdetails.item.push(this.getData)
+      this.orderComplete = this.orderdetails.item
+      console.log("getPData:::" + JSON.stringify(this.orderComplete));
+      for(var i = 0;i<this.orderComplete[i];i++){
+        console.log('orderComplete:' + this.orderComplete[i])
+      }
 
-    if(this.getPData.id === 1 || this.getPData.id === 2){
-    customObj.item = this.getPData;
-    this.empList.push(customObj);
-    this.orderList = this.empList
-    console.log('customObj:::'+JSON.stringify(this.empList))    
-  }
-  if(this.getDData.id === 3 || this.getDData.id === 4){
-    customObj.item = this.getDData;
-    this.empList.push(customObj);
-    this.orderList = this.empList
-    console.log('customObj:::'+JSON.stringify(this.empList))    
-  } 
-  if(this.getKData.id === 5 || this.getKData.id === 6){
-    customObj.item = this.getKData;
-    this.empList.push(customObj);
-    this.orderList = this.empList
-    console.log('customObj:::'+JSON.stringify(this.empList))    
-  }
-    // this.empList.push(customObj);
-    // this.orderList = this.empList
+      // }
+      // if(filterVal === '3' || filterVal === '4'){
+      //   this.getDData = data;
+      // console.log("getData:::" + JSON.stringify(this.getDData));
 
-    let url = "http://localhost:3001/api/order"
-    return this.httpClient.post(url,customObj).subscribe((data:any)=>{
-    console.log('data:::'+JSON.stringify(data))    
+      // }
+      // if(filterVal === '5' || filterVal === '6'){
+      //   this.getKData = data;
+      // console.log("getData:::" + JSON.stringify(this.getKData));
+
+      // }
+    });
     
-    })
-    console.log('inc')
-    this.counterService.count += 1;
   }
+
+  
 
 }
 @Pipe({name: 'safeHtml'})
