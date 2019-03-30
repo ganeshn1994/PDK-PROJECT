@@ -186,8 +186,6 @@ public getOrder(){
   console.log('data:::'+JSON.stringify(data))    
   
   })
-  console.log('inc')
-  this.counterService.count += 1;
 }
   public incCount(){
     let url1="http://localhost:3001/api/oil/"+ this.filterId;
